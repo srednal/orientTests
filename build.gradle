@@ -1,0 +1,39 @@
+// preamble cruft
+import org.gradle.api.internal.file.FileResolver
+import org.gradle.process.internal.DefaultJavaExecAction
+import org.gradle.process.internal.JavaExecAction
+
+import java.math.MathContext
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/groups/public" }
+    }
+}
+buildscript.repositories.each { project.repositories.add(it) }
+
+project.group = project.properties.projectGroup
+project.version = project.properties.projectVersion
+
+apply plugin: 'java'
+
+/////////////////////////////////////////////////////////////////////
+// The main useful bits:
+
+
+defaultTasks 'clean', 'test'
+
+dependencies {
+    testCompile group: 'com.orientechnologies', name: 'orient-commons', version: '1.7.10-SNAPSHOT'
+    testCompile group: 'com.orientechnologies', name: 'orientdb-core', version: '1.7.10-SNAPSHOT'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+
+
+//////////////////////////////////////////////////////////
+
+wrapper {
+    gradleVersion = '2.1'
+}
