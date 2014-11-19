@@ -24,7 +24,7 @@ import static org.junit.Assert.assertNull;
 
 /**
  * https://github.com/orientechnologies/orientdb/issues/3075
- * 
+ *
  * OrientDB encounters a deadlock when multiple threads do schema.createTable concurrently with transaction commit.
  * This test creates a condition where multiple threads are banging away at table creation and transactional operations.
  * It usually deadlocks between threads doing the create and those doing commit.
@@ -111,7 +111,7 @@ public class DeadlockTest {
         List<String> tables = new ArrayList<>();
         for (int i = 0; i < tableCount; ++i) {
             for (int j = 0; j < threadsPerTable; ++j) {
-                tables.add("stuff." + i);
+                tables.add("stuff.i" + i);
             }
         }
         Collections.shuffle(tables);
