@@ -29,7 +29,8 @@ dependencies {
 //    def orientVersion = '1.7.9'
 //    def orientVersion = '1.7.10-SNAPSHOT'
 //    def orientVersion = '2.0-M2'
-    def orientVersion = '2.0-SNAPSHOT'
+    def orientVersion = '2.0-M3'
+//    def orientVersion = '2.0-SNAPSHOT'
 
     testCompile group: 'com.orientechnologies', name: 'orientdb-core', version: orientVersion
     testCompile group: 'junit', name: 'junit', version: '4.11'
